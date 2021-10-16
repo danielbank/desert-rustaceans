@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Desert Rust - Reactive Rocket on AWS Lambda and Async Bluetooth on the BBC micro:bit Microcontroller</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;rss.xml">
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;site.css">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">Desert Rust</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;rust.azdevs.org">
+                            Home
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;tags">
+                            Topics
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;www.meetup.com&#x2F;Desert-Rustaceans&#x2F;">
+                            Meetup
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;www.facebook.com&#x2F;groups&#x2F;873973386288785&#x2F;">
+                            Facebook
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;azdevs.org">
+                            Slack #rust
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;github.com&#x2F;azdevs&#x2F;desert-rustaceans">
+                            Github
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;rust.azdevs.org">Desert Rust</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;rust.azdevs.org">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;tags">
+                                    Topics
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;www.meetup.com&#x2F;Desert-Rustaceans&#x2F;">
+                                    Meetup
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;www.facebook.com&#x2F;groups&#x2F;873973386288785&#x2F;">
+                                    Facebook
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;azdevs.org">
+                                    Slack #rust
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;github.com&#x2F;azdevs&#x2F;desert-rustaceans">
+                                    Github
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://rust.azdevs.org/2021-08-25/#reactive-rocket-on-aws-lambda-via-mysteriouspants" class="toc-link">Reactive Rocket on AWS Lambda via @mysteriouspants</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://rust.azdevs.org/2021-08-25/#async-bluetooth-on-the-bbc-micro-bit-microcontroller-via-jacobrosenthal" class="toc-link">Async Bluetooth on the BBC micro:bit Microcontroller via @jacobrosenthal</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://rust.azdevs.org/2021-08-25/#crates-you-should-know" class="toc-link">Crates You Should Know</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;2021-08-25&#x2F;">Reactive Rocket on AWS Lambda and Async Bluetooth on the BBC micro:bit Microcontroller</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2021-08-25</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>Topics:</p>
+<ul>
+<li>Reactive Rocket on AWS Lambda via <a href="https://github.com/mysteriouspants">@mysteriouspants</a></li>
+<li>Async Bluetooth on the BBC micro:bit Microcontroller via <a href="https://github.com/jacobrosenthal">@jacobrosenthal</a></li>
+</ul>
+<p id="zola-continue-reading"><a name="continue-reading"></a></p>
+<h1 id="reactive-rocket-on-aws-lambda-via-mysteriouspants">Reactive Rocket on AWS Lambda via <a href="https://github.com/mysteriouspants">@mysteriouspants</a></h1>
+<p>Repo: <a href="https://github.com/mysteriouspants/rocket-on-lambdas-starter-template">https://github.com/mysteriouspants/rocket-on-lambdas-starter-template</a></p>
+<p>Blog Post: <a href="https://www.mysteriouspants.com/2021/07/21/reactive-rocket-on-lambda.html">https://www.mysteriouspants.com/2021/07/21/reactive-rocket-on-lambda.html</a></p>
+<p>Chris showed everyone how to write a lambda in Rust and deploy it to AWS. He wrote <a href="https://www.mysteriouspants.com/2021/07/21/reactive-rocket-on-lambda.html">an excellent blog post</a> describing the process in detail. The project uses the <a href="https://crates.io/crates/lambda_runtime">AWS Lambda Runtime</a> and the <a href="https://crates.io/crates/lambda-web">lambda-web crate</a>, which adapts requests from API Gateway V2 passed through the Lambda runtime to Rocket. Actix and Warp are also supported Rust web frameworks.</p>
+<h1 id="async-bluetooth-on-the-bbc-micro-bit-microcontroller-via-jacobrosenthal">Async Bluetooth on the BBC micro:bit Microcontroller via <a href="https://github.com/jacobrosenthal">@jacobrosenthal</a></h1>
+<p>Repo: <a href="https://github.com/jacobrosenthal/microbitv2-rs">https://github.com/jacobrosenthal/microbitv2-rs</a></p>
+<p>Jacob wrote an example async Bluetooth LE program for the <a href="https://microbit.org/">BBC micro:bit microcontroller</a>.</p>
+<p>The project makes use of the following crates:</p>
+<ul>
+<li><a href="https://github.com/embassy-rs/embassy">embassy</a> for using async / await in an embedded no-std context</li>
+<li><a href="https://github.com/probe-rs/probe-rs">probe-run</a> for flashing the program to the microcontroller</li>
+<li><a href="https://github.com/probe-rs/probe-rs">probe-rs</a> for displaying logs from the microcontroller's onboard debugger.</li>
+<li><a href="https://crates.io/crates/flip-link">flip-link</a> which protects against <a href="https://github.com/knurling-rs/flip-link#the-problem">overflowing the stack region of data</a> into the <code>.bss + .data</code> region by <a href="https://github.com/knurling-rs/flip-link#the-solution">putting the stack region below</a> the <code>.bss + .data</code> memory region.</li>
+</ul>
+<p>The program allows us to read and write data to a dummy <a href="http://www.blesstags.eu/2018/08/services-characteristics-descriptors.html">BLE characteristic</a>, which we did using the nRF Connect app (available for <a href="https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop">Desktop</a>, <a href="https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&amp;hl=en_US&amp;gl=US">Android</a>, and <a href="https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403">iOS</a>).</p>
+<p>Some additional reading materials:</p>
+<ul>
+<li>
+<p><a href="https://www.amazon.com/Make-Bluetooth-Projects-Raspberry-Smartphones/dp/1457187094">Make: Bluetooth</a> by <a href="https://github.com/sandeepmistry">Sandeep Mistry</a>, <a href="https://github.com/aallan">Alasdair Allan</a>, and <a href="https://github.com/don">Don Coleman</a>: an awesome book on making Bluetooth programs</p>
+</li>
+<li>
+<p><a href="https://blog.drogue.io/rust-and-microbit/">Rust on the BBC micro:bit</a>: a blog post for writing Rust programs for the BBC micro:bit</p>
+</li>
+<li>
+<p><a href="https://github.com/nrf-rs/microbit">nrf-rs/microbit</a>: another example repo of running a Rust program on the BBC micro:bit from the <a href="https://github.com/nrf-rs">nRF Rust</a> collection of Rust repos for the nRF series of microcontrollers.</p>
+</li>
+</ul>
+<h1 id="crates-you-should-know">Crates You Should Know</h1>
+<ul>
+<li><a href="https://crates.io/crates/probe-rs">probe-rs</a>: A collection of on chip debugging tools to communicate with microchips.</li>
+<li><a href="https://crates.io/crates/probe-run">probe-run</a>: Runs embedded programs just like native ones</li>
+<li><a href="https://crates.io/crates/flip-link">flip-link</a>: Flips the memory layout of embedded programs to protect against stack overflows</li>
+<li><a href="https://crates.io/crates/lambda_runtime">lambda_runtime</a>: AWS Lambda Runtime</li>
+<li><a href="https://crates.io/crates/lambda-web">lambda-web</a>: Run Rust web frameworks on AWS Lambda</li>
+</ul>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;tags&#x2F;embedded&#x2F;">#Embedded</a>
+                    
+                        <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;tags&#x2F;web&#x2F;">#Web</a>
+                    
+                        <a href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;tags&#x2F;serverless&#x2F;">#Serverless</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;2021-06-30&#x2F;">‹ Crates You Should Know</a>
+                    
+                    
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https:&#x2F;&#x2F;rust.azdevs.org&#x2F;even.js" ></script>
+      
+    </body>
+
+</html>
